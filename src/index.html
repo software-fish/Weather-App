@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="search-form">
+        <span>Search city:</span>
+        <input type="text" id="search-city">
+        <button id="submit-city">Search</button>
+    </div>
+    <div id="primary-detail">
+        <h2 id="condition">Sunny today</h2>
+        <h3 id="address">Miami, FL, United States</h3>
+    </div>
+    <div id="temp">
+        <h2 id="fahrenheit">69 Fahrenheit</h2>
+        <h3 id="max-temp">Maximum temperature: 70 fahrenheit</h3>
+        <h3 id="min-temp">Minimum temperature: 55 fahrenheit</h3>
+        <h3 id="humid">Humidity: 65</h3>
+        <div id="next-hours">
+            <div id="1-hour" class="hour">
+                <h2>In 1 hour</h2>
+                <h2 id="h-fahrenheit">69 Fahrenheit</h2>
+                <h3 id="h-max-temp">Maximum temperature: 70 fahrenheit</h3>
+                <h3 id="h-min-temp">Minimum temperature: 55 fahrenheit</h3>
+                <h3 id="h-humid">Humidity: 65</h3>   
+            </div>
+            <div id="2-hour" class="hour">
+                <h2>In 2 hours</h2>
+                <h2 id="twoh-fahrenheit">69 Fahrenheit</h2>
+                <h3 id="twoh-max-temp">Maximum temperature: 70 fahrenheit</h3>
+                <h3 id="twoh-min-temp">Minimum temperature: 55 fahrenheit</h3>  
+                <h3 id="twoh-humid">Humidity: 65</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
