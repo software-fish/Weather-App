@@ -1,0 +1,24 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "a weather website that makes an API request",
+  "homepage": "https://github.com/software-fish/Weather-App#readme",
+  "bugs": {
+    "url": "https://github.com/software-fish/Weather-App/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/software-fish/Weather-App.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "webpack": "^5.112.2",
+    "webpack-cli": "^7.3.1",
+    "webpack-dev-server": "^6.1.0"
+  }
+}
