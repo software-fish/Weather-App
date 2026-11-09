@@ -5,9 +5,11 @@ function fetchData(endpoint, elements) {
         .then(response => {
             if (response.ok) {
                 return response.json()
+            } else if (response.status === 400) {
+                return alert("Bad request")
             }
 
-            document.body.textContent = "Something went wrong."
+            return alert("Something went wrong")
         })
         .then(({ address, days: [{ tempmax, tempmin, temp, humidity, conditions, hours }] }) => {
             if (elements.primaryDetail[0].textContent !== conditions) elements.primaryDetail[0].textContent = conditions
@@ -16,6 +18,9 @@ function fetchData(endpoint, elements) {
             setCurrentTemp(temp, tempmax, tempmin, humidity, elements)
             setNextHoursTemp(elements.firstHour, hours, 0, "h-")
             setNextHoursTemp(elements.secondHour, hours, 1, "twoh-")
+        })
+        .catch(error => {
+            console.error(error)
         })
 }
 
