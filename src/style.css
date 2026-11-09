@@ -1,0 +1,60 @@
+body {
+    background: url("/public/neda-astani-KWTkd7mHqKE-unsplash.jpg");
+}
+
+#search-form {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#search-city {
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#submit-city {
+    background: turquoise;
+    border: 1px white solid;
+    border-radius: 5px;
+}
+
+#submit-city:hover {
+    background: blue;
+}
+
+#submit-city:active {
+    background: darkblue;
+}
+
+#condition {
+    text-align: center;
+    font-size: 50px;
+}
+
+#address {
+    text-align: center;
+    font-size: 30px;
+}
+
+#temp {
+    background: white;
+    text-align: center;
+    margin-left: 640px;
+    margin-right: 640px;
+    border: 10px solid black;
+}
+
+#next-hours {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hour {
+    background: white;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-top: 75px;
+    border: 10px solid black;
+}
