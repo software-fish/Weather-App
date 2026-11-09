@@ -11,7 +11,7 @@ const elements = {
 const endpoint = {
     city: 'London,UK',
     get url() {
-        return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.city}?unitGroup=metric`
+        return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.city}?unitGroup=us`
     },
     setCity(target) {
         this.city = target.value
