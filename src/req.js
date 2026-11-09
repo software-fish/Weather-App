@@ -10,8 +10,8 @@ function fetchData(endpoint, elements) {
             document.body.textContent = "Something went wrong."
         })
         .then(({ address, days: [{ tempmax, tempmin, temp, humidity, conditions, hours }] }) => {
-            elements.primaryDetail[0].textContent = conditions
-            elements.primaryDetail[1].textContent = address
+            if (elements.primaryDetail[0].textContent !== conditions) elements.primaryDetail[0].textContent = conditions
+            if (elements.primaryDetail[1].textContent !== address) elements.primaryDetail[1].textContent = address
 
             setCurrentTemp(temp, tempmax, tempmin, humidity, elements)
             setNextHoursTemp(elements.firstHour, hours, 0, "h-")

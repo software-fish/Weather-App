@@ -13,7 +13,7 @@ const endpoint = {
     get url() {
         return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.city}?unitGroup=metric`
     },
-    setCity( target ) {
+    setCity(target) {
         this.city = target.value
     }
 }

@@ -1,5 +1,18 @@
 function setCurrentTemp(temp, tempmax, tempmin, humidity, { currentTemp }) {
     Array.from(currentTemp).forEach(element => {
+        if (
+            element.textContent === `${temp} Fahrenheit`
+            ||
+            element.textContent === `Max temp: ${tempmax} Fahrenheit`
+            ||
+            element.textContent === `Min temp: ${tempmin} Fahrenheit`
+            ||
+            element.textContent === `Humidity: ${humidity}`
+        )
+        {
+            return;
+        }
+
         switch (element.id) {
             case "fahrenheit":
                 element.textContent = `${temp} Fahrenheit`
@@ -22,6 +35,17 @@ function setCurrentTemp(temp, tempmax, tempmin, humidity, { currentTemp }) {
 
 function setNextHoursTemp(element_hour, hours, index, typeOfHour) {
     Array.from(element_hour).forEach(element => {
+        if (
+            element.textContent === `${hours[index].conditions}`
+            ||
+            element.textContent === `${hours[index].temp} Fahrenheit`
+            ||
+            element.textContent === `Humidity: ${hours[index].humidity}`
+        )
+        {
+            return;
+        }
+
         switch (element.id) {
             case `${typeOfHour}conditions`:
                 element.textContent = `${hours[index].conditions}`
