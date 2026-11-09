@@ -29,6 +29,24 @@ function setCurrentTemp(temp, tempmax, tempmin, humidity, { currentTemp }) {
     })
 }
 
+function setNextHoursTemp(element_hour, hours, index, typeOfHour) {
+    Array.from(element_hour).forEach(element => {
+        switch (element.id) {
+            case `${typeOfHour}conditions`:
+                element.textContent = `${hours[index].conditions}`
+            break
+
+            case `${typeOfHour}fahrenheit`:
+                element.textContent = `${hours[index].temp} Fahrenheit`
+            break
+
+            case `${typeOfHour}humid`:
+                element.textContent = `Humidity: ${hours[index].humidity}`
+            break
+        }
+    })
+}
+
 function fetchData(endpoint) {
     fetch(endpoint.url)
         .then(response => {
@@ -44,13 +62,8 @@ function fetchData(endpoint) {
 
             setCurrentTemp(temp, tempmax, tempmin, humidity, elements)
 
-            temperatures.nextHours.first.condition.textContent = `${hours[0].conditions}`
-            temperatures.nextHours.first.fahrenheit.textContent = `${hours[0].temp} Fahrenheit`
-            temperatures.nextHours.first.humid.textContent = `Humidity: ${hours[0].humidity}`
-
-            temperatures.nextHours.second.condition.textContent = `${hours[1].conditions}`
-            temperatures.nextHours.second.fahrenheit.textContent = `${hours[1].temp} Fahrenheit`
-            temperatures.nextHours.second.humid.textContent = `Humidity: ${hours[1].humidity}`
+            setNextHoursTemp(elements.firstHour, hours, 0, "h-")
+            setNextHoursTemp(elements.secondHour, hours, 1, "twoh-")
         })
 }
 
@@ -66,10 +79,10 @@ const endpoint = {
 
 fetchData(endpoint)
 
-searchForm.submit.addEventListener('click', () => {
-    if (!searchForm["Input Field"].value.trim()) return;
+elements.searchForm[2].addEventListener('click', () => {
+    if (!elements.searchForm[1].value.trim()) return;
 
-    endpoint.setCity(searchForm["Input Field"])
+    endpoint.setCity(elements.searchForm[1])
 
     fetchData(endpoint)
 })
