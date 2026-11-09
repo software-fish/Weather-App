@@ -7,6 +7,28 @@ const elements = {
     secondHour: document.getElementById("second-hour").children,
 }
 
+function setCurrentTemp(temp, tempmax, tempmin, humidity, { currentTemp }) {
+    Array.from(currentTemp).forEach(element => {
+        switch (element.id) {
+            case "fahrenheit":
+                element.textContent = `${temp} Fahrenheit`
+            break
+
+            case "max-temp":
+                element.textContent = `Max temp: ${tempmax} Fahrenheit`
+            break
+
+            case "min-temp":
+                element.textContent = `Min temp: ${tempmin} Fahrenheit`
+            break
+
+            case "humid":
+                element.textContent = `Humidity: ${humidity}`
+            break
+        }
+    })
+}
+
 function fetchData(endpoint) {
     fetch(endpoint.url)
         .then(response => {
@@ -17,13 +39,10 @@ function fetchData(endpoint) {
             document.body.textContent = "Something went wrong."
         })
         .then(({ address, days: [{ tempmax, tempmin, temp, humidity, conditions, hours }] }) => {
-            primaryDetail.condition.textContent = conditions
-            primaryDetail.address.textContent = address
+            elements.primaryDetail[0].textContent = conditions
+            elements.primaryDetail[1].textContent = address
 
-            temperatures.currentTemp.fahrenheit.textContent = `${temp} Fahrenheit`
-            temperatures.currentTemp.max.textContent = `Max temp: ${tempmax} Fahrenheit`
-            temperatures.currentTemp.min.textContent = `Min temp: ${tempmin} Fahrenheit`
-            temperatures.currentTemp.humid.textContent = `Humidity: ${humidity}`
+            setCurrentTemp(temp, tempmax, tempmin, humidity, elements)
 
             temperatures.nextHours.first.condition.textContent = `${hours[0].conditions}`
             temperatures.nextHours.first.fahrenheit.textContent = `${hours[0].temp} Fahrenheit`
