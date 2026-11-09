@@ -1,34 +1,10 @@
 // I use objects here because in my opinion they make it easier for me to navigate
-
-const searchForm = {
-    "Input Field": document.getElementById("search-city"),
-    submit: document.getElementById("submit-city"),
-}
-
-const primaryDetail = {
-    condition: document.getElementById("condition"),
-    address: document.getElementById("address"),
-}
-
-const temperatures = {
-    currentTemp: {
-        fahrenheit: document.getElementById("fahrenheit"),
-        max: document.getElementById("max-temp"),
-        min: document.getElementById("min-temp"),
-        humid: document.getElementById("humid"),
-    },
-    nextHours: {
-        first: {
-            fahrenheit: document.getElementById("h-fahrenheit"),
-            humid: document.getElementById("h-humid"),
-            condition: document.getElementById('h-conditions')
-        },
-        second: {
-            fahrenheit: document.getElementById("twoh-fahrenheit"),
-            humid: document.getElementById("twoh-humid"),
-            condition: document.getElementById('twoh-conditions')
-        }
-    }
+const elements = {
+    searchForm: document.getElementById("search-form").children,
+    primaryDetail: document.getElementById("primary-detail").children,
+    currentTemp: document.getElementById("temp").children,
+    firstHour: document.getElementById("first-hour").children,
+    secondHour: document.getElementById("second-hour").children,
 }
 
 function fetchData(endpoint) {
