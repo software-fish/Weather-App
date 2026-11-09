@@ -1,0 +1,22 @@
+import { setCurrentTemp, setNextHoursTemp } from './temp'
+
+function fetchData(endpoint, elements) {
+    fetch(endpoint.url)
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+
+            document.body.textContent = "Something went wrong."
+        })
+        .then(({ address, days: [{ tempmax, tempmin, temp, humidity, conditions, hours }] }) => {
+            elements.primaryDetail[0].textContent = conditions
+            elements.primaryDetail[1].textContent = address
+
+            setCurrentTemp(temp, tempmax, tempmin, humidity, elements)
+            setNextHoursTemp(elements.firstHour, hours, 0, "h-")
+            setNextHoursTemp(elements.secondHour, hours, 1, "twoh-")
+        })
+}
+
+export { fetchData }
